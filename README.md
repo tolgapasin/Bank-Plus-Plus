@@ -10,6 +10,6 @@ Add it to your PATH
  -->
 
 
-<!-- cmake --build . -->
+<!-- cmake --build ./build -->
 
-<!-- cmake --build . --target clean -->
+<!-- cmake --build ./build --target clean -->

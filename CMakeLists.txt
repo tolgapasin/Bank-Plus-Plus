@@ -23,7 +23,13 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Define test executable(s)
-add_executable(bank_tests test/test_dollar_cent_conversion.cpp)
+add_executable(bank_tests
+    test/helpers/test_dollar_cent_conversion.cpp
+    src/helpers/dollar_cent_conversion_helper.cpp
+    test/test_bank_account.cpp
+    src/bank_account.cpp
+)
+target_include_directories(bank_tests PRIVATE ${CMAKE_SOURCE_DIR})
 
 # Link with gtest_main
 target_link_libraries(bank_tests PRIVATE gtest_main)

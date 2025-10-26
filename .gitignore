@@ -34,6 +34,5 @@
 # MAC files
 .DS_Store
 
-# Ignore everything in build except Makefile
+# Ignore everything in /build
 build/*
-!build/Makefile
