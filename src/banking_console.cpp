@@ -31,13 +31,15 @@ class BankingConsole {
         }
 
         void CloseAccount() {
-            // TODO: show message saying the rest of your balance has been withdrawn
-            std::vector<std::string> closingMessage = {
-                "Your account is now closed with a final balance of $0",
-                "Thank you for choosing Bank++"
-            };
+            long long remainingBalance = bankAccount_->GetBalance();
+            bankAccount_->SubtractFromBalance(remainingBalance);
 
-            consoleHelper_->Print(closingMessage);
+            consoleHelper_->PrintPreciseDouble(
+                "Your account has been closed and the following amount has been withdrawn: $",
+                remainingBalance,
+                2   
+            );
+            consoleHelper_->Print("Thank you for choosing Bank++");
             exitProgram_ = true;
         }
 

@@ -30,3 +30,10 @@ TEST_F(BankAccountTests, AddToBalance) {
     double balance = bankAccount_->GetBalance();
     EXPECT_EQ(balance, 125.53);
 }
+
+// During development entering 32.23 showed as 32.22 because of a bug when casting types
+TEST_F(BankAccountTests, BalancePrecision) {
+    bankAccount_ = new BankAccount(32.23);
+    double balance = bankAccount_->GetBalance();
+    EXPECT_EQ(balance, 32.23);
+}

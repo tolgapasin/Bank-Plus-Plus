@@ -37,13 +37,14 @@ class ConsoleHelper {
 
     private:
         template <typename T>
-        // TODO: this works but doesn't accept next input
         T ValidateInputType(T& input) {
             if (std::cin.fail()) {
+                std::cout << std::endl;
                 std::cout << "Invalid input, please enter a " << GetHumanReadableFromTypeId(typeid(T).name());
                 std::cout << std::endl;
                 std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max());
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << std::endl;
 
                 std::cin >> input;
             }
